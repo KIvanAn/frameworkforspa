@@ -18,3 +18,9 @@ html, body {
 app-404 h2 {
     text-align: center;
 }
+.tabs-page {
+    margin-top: 40px;
+}
+.collapsible li.active .collapsible-body {
+    display: block;
+}
