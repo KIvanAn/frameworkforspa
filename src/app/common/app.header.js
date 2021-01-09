@@ -14,8 +14,8 @@ export const appHeader = new AppHeader({
                 <div class="nav-wrapper">
                   <a href="#" class="brand-logo">Framework for SPA</a>
                   <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Sass</a></li>
-                    <li><a href="#">Components</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#tabs">Tabs</a></li>
                   </ul>
                 </div>
             </div>
