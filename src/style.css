@@ -1,0 +1,6 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
