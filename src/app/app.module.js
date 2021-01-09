@@ -1,5 +1,6 @@
 import {AModule} from '../framework/main';
 import {appComponent} from './app.component';
+import {appHeader} from './common/app.header';
 
 class AppModule extends AModule {
     constructor(config) {
@@ -9,6 +10,7 @@ class AppModule extends AModule {
 
 export const appModule = new AppModule({
     components: [
-        appComponent
-    ]
+        appHeader
+    ],
+    mainComponent: appComponent
 })
