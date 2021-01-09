@@ -1,4 +1,6 @@
-import {helperUtil, router} from '../main';
+import {renderComponent} from './component/render-component';
+import {_} from 'framework';
+import {RoutingModule} from './routing/routing.module';
 
 export class Module {
     constructor(config) {
@@ -8,39 +10,22 @@ export class Module {
     }
 
     start() {
-        this.initComponents()
-        if (this.routes) this.initRoutes()
+        initComponents(this.mainComponent, this.components)
+        initRouting(this.routes)
+    }
+}
+
+function initComponents(main, components) {
+    if (_.isUndefined(main)) {
+        throw new Error(`Main component is not defined`)
     }
 
-    initComponents() {
-        this.mainComponent.render()
-        this.components.forEach(this.renderComponent.bind(this))
-    }
+    [main, ...components].forEach(renderComponent)
+}
 
-    initRoutes() {
-        window.addEventListener('hashchange', this.renderRoute.bind(this))
-        this.renderRoute()
-    }
+function initRouting(routes) {
+    if (_.isUndefined(routes)) return
 
-    renderRoute() {
-        const url = router.getUrl()
-        let route = this.routes.find(r => r.path === url)
-
-        if (helperUtil.isUndefined(route)) {
-            route = this.routes.find(r => r.path === '**')
-        }
-
-        document.querySelector('router-outlet').innerHTML = `
-            <${route.component.selector}></${route.component.selector}>
-        `
-        this.renderComponent(route.component)
-    }
-
-    renderComponent(c) {
-        if (!helperUtil.isUndefined(c.onInit)) c.onInit()
-
-        c.render()
-
-        if (!helperUtil.isUndefined(c.afterInit)) c.afterInit()
-    }
+    const routing = new RoutingModule(routes)
+    routing.init()
 }
