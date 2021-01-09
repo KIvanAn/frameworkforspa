@@ -1,4 +1,4 @@
-import {AModule} from '../framework/main';
+import {AModule} from 'framework';
 import {appComponent} from './app.component';
 import {appHeader} from './common/app.header';
 import {appRoutes} from './app.routes';

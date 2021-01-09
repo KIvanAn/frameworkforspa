@@ -1,4 +1,4 @@
-import {AComponent} from '../../framework/main';
+import {AComponent} from 'framework';
 
 class AppHeader extends AComponent {
     constructor(config) {

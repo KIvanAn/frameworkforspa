@@ -1,4 +1,4 @@
-import {AComponent} from '../../framework/main';
+import {AComponent} from 'framework';
 
 class App404 extends AComponent {
     constructor(config) {

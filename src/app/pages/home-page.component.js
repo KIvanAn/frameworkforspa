@@ -1,4 +1,4 @@
-import {AComponent, router} from '../../framework/main';
+import {AComponent, router} from 'framework';
 
 class HomePageComponent extends AComponent {
     constructor(config) {
