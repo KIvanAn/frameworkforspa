@@ -1,9 +1,13 @@
-export const delayUtil = {
+export const helperUtil = {
     delay(ms = 1000) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve()
             }, ms)
         })
+    },
+
+    isUndefined(data) {
+        return typeof data === 'undefined'
     }
 }
