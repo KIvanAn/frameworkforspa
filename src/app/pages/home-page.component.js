@@ -1,8 +1,27 @@
-import {AComponent} from '../../framework/main';
+import {AComponent, router} from '../../framework/main';
 
 class HomePageComponent extends AComponent {
     constructor(config) {
         super(config)
+    }
+
+    events() {
+        return {
+            'click .js-link': 'goTo'
+        }
+    }
+
+    onInit() {
+        console.log('Component init')
+    }
+
+    afterInit() {
+        console.log('Component after init')
+    }
+
+    goTo(event) {
+        event.preventDefault()
+        router.navigate('tabs')
     }
 }
 
@@ -25,7 +44,7 @@ export const homePageComponent = new HomePageComponent({
                       </p>
                     </div>
                     <div class="card-action">
-                      <a href="#">This is a link</a>
+                      <a href="#" class="js-link">This is a link</a>
                     </div>
                   </div>
                 </div>

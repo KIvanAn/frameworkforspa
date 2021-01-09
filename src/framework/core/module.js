@@ -37,6 +37,10 @@ export class Module {
     }
 
     renderComponent(c) {
+        if (!helperUtil.isUndefined(c.onInit)) c.onInit()
+
         c.render()
+
+        if (!helperUtil.isUndefined(c.afterInit)) c.afterInit()
     }
 }
