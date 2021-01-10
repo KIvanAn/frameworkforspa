@@ -6,14 +6,14 @@ export class EventEmiter {
     }
 
     on(event, fn) {
-        if (_.isUndefined(this.listeners[event])) this.listeners = []
+        if (_.isUndefined(this.listeners[event])) this.listeners[event] = []
 
-        this.listeners.push(fn)
+        this.listeners[event].push(fn)
     }
 
     emit(event, data) {
         if (_.isUndefined(this.listeners[event])) return
 
-        this.listeners.forEach(fn => fn(data))
+        this.listeners[event].forEach(fn => fn(data))
     }
 }

@@ -3,6 +3,7 @@ import {appComponent} from './app.component';
 import {appHeader} from './shared/app.header';
 import {appRoutes} from './app.routes';
 import {hoverDirective} from './shared/directives/hover.directive';
+import {multiPipe} from './shared/pipes/multi.pipe';
 
 class AppModule extends AModule {
     constructor(config) {
@@ -18,5 +19,8 @@ export const appModule = new AppModule({
     routes: appRoutes,
     directives: [
         hoverDirective
+    ],
+    pipes: [
+        multiPipe
     ]
 })
