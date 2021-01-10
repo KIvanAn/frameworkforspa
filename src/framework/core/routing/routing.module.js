@@ -2,8 +2,9 @@ import {$, _, router} from 'framework';
 import {renderComponent} from '../component/render-component';
 
 export class RoutingModule {
-    constructor(routes) {
+    constructor(routes, dispatcher) {
         this.routes = routes
+        this.dispatcher = dispatcher
     }
 
     init() {
@@ -26,4 +27,7 @@ function renderRoute() {
         .html(`<${route.component.selector}></${route.component.selector}>`)
 
     renderComponent(route.component)
+
+    // eslint-disable-next-line no-invalid-this
+    this.dispatcher.emit('routing.change-page')
 }

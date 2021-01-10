@@ -1,7 +1,8 @@
 import {AModule} from 'framework';
 import {appComponent} from './app.component';
-import {appHeader} from './common/app.header';
+import {appHeader} from './shared/app.header';
 import {appRoutes} from './app.routes';
+import {hoverDirective} from './shared/directives/hover.directive';
 
 class AppModule extends AModule {
     constructor(config) {
@@ -14,5 +15,8 @@ export const appModule = new AppModule({
         appHeader
     ],
     mainComponent: appComponent,
-    routes: appRoutes
+    routes: appRoutes,
+    directives: [
+        hoverDirective
+    ]
 })
