@@ -13,5 +13,13 @@ export const _ = {
 
     isNull(value) {
         return value === null
+    },
+
+    isString(el) {
+        return typeof el === 'string'
+    },
+
+    isEmpty(data) {
+        return data.length && data.length === 0
     }
 }

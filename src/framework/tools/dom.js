@@ -2,9 +2,10 @@ import {_} from './utils';
 
 class Dom {
     constructor(selector) {
-        this.el = typeof selector === 'string' ?
-            document.querySelector(selector) :
-            selector
+        if (_.isString(selector)) {
+            selector = document.querySelector(selector)
+        }
+        this.el = selector
 
         this.isDom = true
     }
@@ -61,7 +62,7 @@ class Dom {
     }
 
     attr(name, value = null) {
-        if (_.isNull(value)) this.el.getAttribute(name)
+        if (_.isNull(value)) return this.el.getAttribute(name)
 
         this.el.setAttribute(name, value)
         return this

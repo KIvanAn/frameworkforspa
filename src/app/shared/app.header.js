@@ -16,6 +16,7 @@ export const appHeader = new AppHeader({
                   <ul class="right hide-on-med-and-down">
                     <li><a href="#">Home</a></li>
                     <li><a href="#tabs">Tabs</a></li>
+                    <li><a href="#directives">Directives</a></li>
                   </ul>
                 </div>
             </div>
