@@ -6,6 +6,7 @@ import {EventEmiter} from './tools/event-emiter';
 import {bootstrap} from './core/functions/bootstrap';
 import {_} from './tools/utils';
 import {$} from './tools/dom';
+import {http} from './tools/http';
 import {router} from './core/routing/router';
 
 export {
@@ -17,5 +18,6 @@ export {
     bootstrap,
     _,
     $,
+    http,
     router
 }

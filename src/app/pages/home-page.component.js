@@ -1,4 +1,4 @@
-import {AComponent, router} from 'framework';
+import {AComponent, router, http} from 'framework';
 
 class HomePageComponent extends AComponent {
     constructor(config) {
@@ -11,7 +11,8 @@ class HomePageComponent extends AComponent {
                 small bits of information. I am convenient because I 
                 require little markup to use effectively.
             `,
-            linkTitle: 'Go to tabs'
+            linkTitle: 'Go to tabs',
+            ip: 'Loading...'
         }
     }
 
@@ -27,6 +28,11 @@ class HomePageComponent extends AComponent {
 
     afterInit() {
         console.log('Component after init')
+        http.get('https://api64.ipify.org?format=json')
+            .then(({ip}) => {
+                this.data.ip = ip
+                this.render()
+            })
     }
 
     goTo(event) {
@@ -45,6 +51,8 @@ export const homePageComponent = new HomePageComponent({
                     <div class="card-content white-text">
                       <span class="card-title">{{ title }}</span>
                       <p>{{ description }}</p>
+                      </br>
+                      <p>Your ip: {{ ip }}</p>
                     </div>
                     <div class="card-action">
                       <a href="#" class="js-link">{{ linkTitle }}</a>
