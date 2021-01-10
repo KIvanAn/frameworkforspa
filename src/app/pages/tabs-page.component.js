@@ -1,4 +1,4 @@
-import {AComponent} from 'framework';
+import {$, AComponent} from 'framework';
 
 class TabsPageComponent extends AComponent {
     constructor(config) {
@@ -12,12 +12,11 @@ class TabsPageComponent extends AComponent {
     }
 
     onTabClick({target}) {
-        if (!target.classList.contains('collapsible-header')) return
+        if (!$(target).hasClass('collapsible-header')) return
 
-        this.el.querySelectorAll('.js-tab')
-            .forEach(e => e.classList.remove('active'))
+        this.el.findAll('.js-tab').forEach(e => e.removeClass('active'))
 
-        target.parentNode.classList.add('active')
+        $(target).parent().addClass('active')
     }
 }
 

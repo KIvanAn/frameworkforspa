@@ -9,5 +9,9 @@ export const _ = {
 
     isUndefined(data) {
         return typeof data === 'undefined'
+    },
+
+    isNull(value) {
+        return value === null
     }
 }
